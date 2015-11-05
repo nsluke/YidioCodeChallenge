@@ -37,69 +37,41 @@ class ViewController: UIViewController {
         self.tableView.backgroundColor = lukesColor
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-    }
-    
-    func getRequestFromAPIWithSearchString (searchString:String) {
-        isGetRequestDone = false
-        let URLString:String = "http://api.yidio.com/search/complete/" + searchString + "/0/10?device=iphone&api_key=8482068393681760"
-        
-        Alamofire.request(.GET, URLString , parameters: nil).responseJSON { response in
-            if let JSON = response.result.value {
-                
-                self.responseArray = (JSON.objectForKey("response"))! as! NSArray
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.isGetRequestDone = true
-                    self.tableView.reloadData()
-                })
-            }
-        }
     }
 }
 
 extension ViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
-        self.view.endEditing(true)
+        
+        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        
+        NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
+            self.responseArray = responseArray
+            self.tableView.reloadData()
+            self.view.endEditing(true)
+        }
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
     }
     
-//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-////        if isGetRequestDone == false {
-//            self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
-////        } else {
-////            
-////        }
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        NetworkHelper.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
 //    }
-
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if isGetRequestDone == false {
-            self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
-        } else {
-
-        }
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        //
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (1/8) * self.view.frame.height
-    }
     
 }
 
 extension ViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return responseArray.count;
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        print("5")
+
         let cell:ResponseTableViewCell = tableView.dequeueReusableCellWithIdentifier("ResponseCell", forIndexPath: indexPath) as! ResponseTableViewCell
         
         var currentDict:Dictionary = responseArray.objectAtIndex(indexPath.row) as! [String:AnyObject]
@@ -144,8 +116,13 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return responseArray.count;
+
+}
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return (1/8) * self.view.frame.height
     }
     
 }
