@@ -27,54 +27,60 @@ class ViewController: UIViewController {
         self.searchBar.backgroundColor = lukesColor
         self.searchBar.searchBarStyle = UISearchBarStyle.Minimal
         
+//        let searchIconImage = UIImage(named: <#T##String#>)
+//        searchBar.setImage(searchIconImage, forSearchBarIcon: .Search, state: .Normal)
+        
+        let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
+//        searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
+        searchTextField.textColor = UIColor.whiteColor()
+        
         self.tableView.backgroundColor = lukesColor
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        self.getRequestFromAPI()
     }
     
-    
-    func getRequestFromAPI (){
-        
+    func getRequestFromAPIWithSearchString (searchString:String) {
         isGetRequestDone = false
+        let URLString:String = "http://api.yidio.com/search/complete/" + searchString + "/0/10?device=iphone&api_key=8482068393681760"
         
-        Alamofire.request(.GET, "http://api.yidio.com/search/complete/Philadelphia/0/10?device=iphone&api_key=8482068393681760" , parameters: nil)
-            .responseJSON { response in
+        Alamofire.request(.GET, URLString , parameters: nil).responseJSON { response in
+            if let JSON = response.result.value {
                 
-                if let JSON = response.result.value {
-                    
-                    self.responseArray = (JSON.objectForKey("response"))! as! NSArray
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.isGetRequestDone = true
-                        self.tableView.reloadData()
-                    })
-                }
+                self.responseArray = (JSON.objectForKey("response"))! as! NSArray
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.isGetRequestDone = true
+                    self.tableView.reloadData()
+                })
+            }
         }
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
-        })
     }
 }
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.resignFirstResponder()
-        
+        self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
+        self.view.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        //
-        
+        self.view.endEditing(true)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+////        if isGetRequestDone == false {
+//            self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
+////        } else {
+////            
+////        }
+//    }
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if isGetRequestDone == false {
-            getRequestFromAPI()
+            self.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
         } else {
-            
+
         }
     }
     
@@ -99,26 +105,43 @@ extension ViewController: UITableViewDataSource {
         var currentDict:Dictionary = responseArray.objectAtIndex(indexPath.row) as! [String:AnyObject]
         let cellString:String = currentDict["name"] as! String
         var cellSubTitleString:String = ""
+        var cellType:String?
         
-        cell.viewableIcon?.hidden = true
+        cell.isItViewable = true
         
         if currentDict["type"] as! String == "show" {
             cellSubTitleString = "TV Show" + " (\(currentDict["year"] as! String))"
+            cellType = "tv"
+        }
+        else if currentDict["type"] as! String == "movie" {
+            if currentDict["year"] as! String != "" {
+                cellSubTitleString = "Movie" + " (\(currentDict["year"] as! String))"
 
-        } else if currentDict["type"] as! String == "movie" {
-            cellSubTitleString = "Movie" + " (\(currentDict["year"] as! String))"
+            } else {
+                cellSubTitleString = "Movie"
+            }
+            cellType = "movie"
+        }
+        else if currentDict["type"] as! String == "episode" {
+            cellSubTitleString = "Episode · " + "Title of the Show" + " (\(currentDict["year"] as! String))"
+            cellType = "episode"
+        }
+        else if currentDict["type"] as! String == "clip" {
+        
         }
         
         if currentDict["available_on_device"] as! String == "1" {
-            cell.viewableIcon?.hidden = false
+            cell.isItViewable = false
         }
-        
+
         cell.title = cellString
-        
         cell.subTitle = cellSubTitleString
         
+        let idString = responseArray.objectAtIndex(indexPath.row).objectForKey("id") as! String
+        
+        cell.cellImageURL = NSURL(string: "http://cf.yidio.com/images/" + cellType! + "/" + idString + "/poster-193x290.jpg")
+        
         return cell
-    
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

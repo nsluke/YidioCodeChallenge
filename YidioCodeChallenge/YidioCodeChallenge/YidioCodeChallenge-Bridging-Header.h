@@ -10,7 +10,6 @@
 #define YidioCodeChallenge_Bridging_Header_h
 
 #import <AFNetworking/AFNetworking.h>
-#import "UIKit+AFNetworking.h"
-
+#import "UIImageView+AFNetworking.h"
 
 #endif /* YidioCodeChallenge_Bridging_Header_h */

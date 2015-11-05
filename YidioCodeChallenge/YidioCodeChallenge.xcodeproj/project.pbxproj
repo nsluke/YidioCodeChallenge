@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14D064CDCC6CCF80A79B6FC9 /* Pods_YidioCodeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */; };
+		D526DEDB1BEAC12E0077E9F1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526DEDA1BEAC12E0077E9F1 /* Media.swift */; };
 		D52BCFDC1BE325EF006ADE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */; };
 		D52BCFE11BE325EF006ADE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52BCFDF1BE325EF006ADE36 /* Main.storyboard */; };
 		D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFE21BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld */; };
@@ -19,7 +20,6 @@
 		D57CAF9C1BE5A479004F28E3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAF9B1BE5A479004F28E3 /* CustomNavigationController.swift */; };
 		D57CAF9E1BE5C61D004F28E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAF9D1BE5C61D004F28E3 /* ViewController.swift */; };
 		D57CAFA21BE7FA5E004F28E3 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */; };
-		D57CAFA41BE93FCC004F28E3 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAFA31BE93FCC004F28E3 /* Show.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YidioCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D526DEDA1BEAC12E0077E9F1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		D52BCFD81BE325EF006ADE36 /* YidioCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YidioCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D52BCFE01BE325EF006ADE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		D57CAF9D1BE5C61D004F28E3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D57CAFA01BE7F1A3004F28E3 /* YidioCodeChallenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YidioCodeChallenge-Bridging-Header.h"; sourceTree = "<group>"; };
 		D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
-		D57CAFA31BE93FCC004F28E3 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		D63E50EC60FA782E976F6DF2 /* Pods-YidioCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YidioCodeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YidioCodeChallenge/Pods-YidioCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		FDC8107BDC7C9D649382AA34 /* Pods-YidioCodeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YidioCodeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-YidioCodeChallenge/Pods-YidioCodeChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +136,7 @@
 				D57CAF9B1BE5A479004F28E3 /* CustomNavigationController.swift */,
 				D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */,
 				D57CAF9D1BE5C61D004F28E3 /* ViewController.swift */,
-				D57CAFA31BE93FCC004F28E3 /* Show.swift */,
+				D526DEDA1BEAC12E0077E9F1 /* Media.swift */,
 				D52BCFDF1BE325EF006ADE36 /* Main.storyboard */,
 				D52BD00C1BE328AE006ADE36 /* CustomDialogueView.xib */,
 				D52BCFE71BE325EF006ADE36 /* LaunchScreen.storyboard */,
@@ -349,8 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57CAFA41BE93FCC004F28E3 /* Show.swift in Sources */,
 				D57CAFA21BE7FA5E004F28E3 /* ResponseTableViewCell.swift in Sources */,
+				D526DEDB1BEAC12E0077E9F1 /* Media.swift in Sources */,
 				D57CAF9E1BE5C61D004F28E3 /* ViewController.swift in Sources */,
 				D57CAF9C1BE5A479004F28E3 /* CustomNavigationController.swift in Sources */,
 				D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */,

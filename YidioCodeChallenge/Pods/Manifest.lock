@@ -21,13 +21,16 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Alamofire (3.1.1)
+  - JSONHelper (1.6.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Alamofire (~> 3.0)
+  - JSONHelper
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   Alamofire: 9b0a7188b961a03914a99304488bd226b0e46c0e
+  JSONHelper: 2ffa958e1cb6f6eed52478d6239d8a945055d368
 
 COCOAPODS: 0.39.0

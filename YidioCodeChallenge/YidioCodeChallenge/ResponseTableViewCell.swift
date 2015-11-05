@@ -16,7 +16,15 @@ class ResponseTableViewCell: UITableViewCell {
     @IBOutlet weak var viewableIcon: UIImageView!
     
     
-    
+    var isItViewable:Bool! {
+        didSet{
+            if isItViewable == true {
+                viewableIcon.hidden = true
+            } else if isItViewable == false {
+                viewableIcon.hidden = false
+            }
+        }
+    }
     
     var title:String! {
         didSet{
@@ -30,10 +38,11 @@ class ResponseTableViewCell: UITableViewCell {
         }
     }
     
-    var posterImageData:NSData!{
-        didSet{
+    var cellImageURL:NSURL! {
+        didSet {
+            posterImageView.image = nil
             
+            posterImageView.setImageWithURL(cellImageURL)
         }
     }
-    
 }
