@@ -162,12 +162,16 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="N7j-E6-YQh" firstAttribute="leading" secondItem="8KK-tH-Yux" secondAttribute="leadingMargin" constant="-20" id="Im9-vJ-agl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N7j-E6-YQh" secondAttribute="trailing" constant="-20" id="PZX-4r-CRd"/>
                             <constraint firstItem="N7j-E6-YQh" firstAttribute="top" secondItem="fsv-Rg-Kjv" secondAttribute="bottom" constant="8" id="qDj-oW-E2V"/>
                             <constraint firstItem="Pcq-zQ-UOV" firstAttribute="top" secondItem="N7j-E6-YQh" secondAttribute="bottom" id="vhm-cB-YLW"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Q5I-mR-Baz" appends="YES" id="LuC-de-wsM"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="8KK-tH-Yux" id="ySM-PH-EMB"/>
@@ -176,6 +180,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hre-Hk-wXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Q5I-mR-Baz"/>
             </objects>
             <point key="canvasLocation" x="338" y="1801"/>
         </scene>

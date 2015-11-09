@@ -23,7 +23,6 @@ class NetworkHelper {
                 
                 if let responseArray = JSON.objectForKey("response") as? NSArray {
                     onComplete(responseArray)
-                    
 //                    var controller = UIAlertView
                 }
             }

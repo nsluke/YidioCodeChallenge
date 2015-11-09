@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var responseArray = []
     var isGetRequestDone:Bool = true
+    let DynamicView = CoachMarkView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,19 @@ class ViewController: UIViewController {
         self.tableView.backgroundColor = lukesColor
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
+        DynamicView.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 255/255, alpha: 1)
+        DynamicView.layer.cornerRadius = 20
+        self.DynamicView.frame = CGRectMake(8, searchBar.frame.height * 3, 200, 120)
+        
+        self.view.addSubview(DynamicView)
+        self.DynamicView.alpha = 0
+        UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.DynamicView.alpha = 1
+            self.DynamicView.frame = CGRectMake(8, self.searchBar.frame.height * 2, 200, 120)
+        }, completion: { finished in
+        })
+        
     }
 }
 
@@ -57,9 +71,27 @@ extension ViewController: UISearchBarDelegate {
         self.view.endEditing(true)
     }
     
-//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-//        NetworkHelper.getRequestFromAPIWithSearchString(searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!)
-//    }
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.DynamicView.removeFromSuperview()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        
+        
+        
+        NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
+            self.responseArray = responseArray
+            self.tableView.reloadData()
+        }
+    
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .Ended {
+            // handling code
+        }
+    }
     
 }
 
