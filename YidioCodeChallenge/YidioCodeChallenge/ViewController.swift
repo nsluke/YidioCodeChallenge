@@ -62,20 +62,6 @@ class ViewController: UIViewController {
         return UIStatusBarStyle.LightContent
     }
     
-    func removeClearButtonFromView(view: UIView) {
-        if view != view {
-            return
-        }
-        for subview: UIView in view.subviews {
-            self.removeClearButtonFromView(subview)
-        }
-        if view.conformsToProtocol(UITextInputTraits) {
-            var textView = UITextField()
-            if textView.respondsToSelector("setClearButtonMode:") {
-                textView.setClearButtonMode(UITextFieldViewMode.Never)
-            }
-        }
-    }
 }
 
 extension ViewController: UISearchBarDelegate {
