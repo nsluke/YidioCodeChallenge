@@ -29,11 +29,11 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.12941176469999999" green="0.1333333333" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="What do you want to watch?" id="d1b-t2-rbW">
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" text="" placeholder="What do you want to watch?" id="d1b-t2-rbW">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
                                     <connections>
                                         <outlet property="delegate" destination="27R-9j-e3b" id="Q9i-fS-N6h"/>
                                     </connections>
@@ -159,6 +159,10 @@
                                     <outlet property="delegate" destination="27R-9j-e3b" id="WCg-nh-pfq"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gRP-Hg-fnc">
+                                <rect key="frame" x="565" y="38" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,13 +171,16 @@
                             <constraint firstItem="N7j-E6-YQh" firstAttribute="leading" secondItem="8KK-tH-Yux" secondAttribute="leadingMargin" constant="-20" id="Im9-vJ-agl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N7j-E6-YQh" secondAttribute="trailing" constant="-20" id="PZX-4r-CRd"/>
                             <constraint firstItem="N7j-E6-YQh" firstAttribute="top" secondItem="fsv-Rg-Kjv" secondAttribute="bottom" constant="8" id="qDj-oW-E2V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gRP-Hg-fnc" secondAttribute="trailing" constant="-5" id="qfU-1x-Ngt"/>
                             <constraint firstItem="Pcq-zQ-UOV" firstAttribute="top" secondItem="N7j-E6-YQh" secondAttribute="bottom" id="vhm-cB-YLW"/>
+                            <constraint firstItem="gRP-Hg-fnc" firstAttribute="top" secondItem="fsv-Rg-Kjv" secondAttribute="bottom" constant="18" id="zIV-P3-A8J"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Q5I-mR-Baz" appends="YES" id="LuC-de-wsM"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="gRP-Hg-fnc" id="xqm-HE-vkO"/>
                         <outlet property="backgroundView" destination="8KK-tH-Yux" id="ySM-PH-EMB"/>
                         <outlet property="searchBar" destination="d1b-t2-rbW" id="hnd-QS-onk"/>
                         <outlet property="tableView" destination="N7j-E6-YQh" id="XCW-Mo-fWP"/>
@@ -182,7 +189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hre-Hk-wXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Q5I-mR-Baz"/>
             </objects>
-            <point key="canvasLocation" x="338" y="1801"/>
+            <point key="canvasLocation" x="216" y="1703"/>
         </scene>
     </scenes>
     <resources>

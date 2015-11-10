@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var responseArray = []
     var isGetRequestDone:Bool = true
@@ -27,9 +28,10 @@ class ViewController: UIViewController {
         self.searchBar.barTintColor = lukesColor
         self.searchBar.backgroundColor = lukesColor
         self.searchBar.searchBarStyle = UISearchBarStyle.Minimal
-        
-//        let searchIconImage = UIImage(named: <#T##String#>)
-//        searchBar.setImage(searchIconImage, forSearchBarIcon: .Search, state: .Normal)
+
+//        self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
+//        self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Highlighted)
+//        self.searchBar.setImage(UIImage(named: "ico-search"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
         
         let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
 //        searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
@@ -47,52 +49,74 @@ class ViewController: UIViewController {
         self.DynamicView.alpha = 0
         UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.DynamicView.alpha = 1
-            self.DynamicView.frame = CGRectMake(8, self.searchBar.frame.height * 2, 200, 120)
+            self.DynamicView.frame = CGRectMake(8, self.searchBar.frame.height * 1.8, 200, 120)
         }, completion: { finished in
         })
-        
+    }
+    
+    func dismissKeyboard () {
+        self.view.endEditing(true)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func removeClearButtonFromView(view: UIView) {
+        if view != view {
+            return
+        }
+        for subview: UIView in view.subviews {
+            self.removeClearButtonFromView(subview)
+        }
+        if view.conformsToProtocol(UITextInputTraits) {
+            var textView = UITextField()
+            if textView.respondsToSelector("setClearButtonMode:") {
+                textView.setClearButtonMode(UITextFieldViewMode.Never)
+            }
+        }
     }
 }
 
 extension ViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
-        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-        
-        NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
-            self.responseArray = responseArray
-            self.tableView.reloadData()
-            self.view.endEditing(true)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.view.endEditing(true)
-    }
+//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+//        
+//        NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
+//            self.responseArray = responseArray
+//            self.tableView.reloadData()
+//        }
+//    }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.DynamicView.removeFromSuperview()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+//        self.searchBar.setImage(nil, forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
+//        self.searchBar.setImage(nil, forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Highlighted)
+        
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.activityIndicatorView.startAnimating()
+      
+        if (searchText == "") {
+            self.responseArray = []
+            self.tableView.reloadData()
+            self.dismissKeyboard()
+            self.activityIndicatorView.stopAnimating()
+        }
+        
         let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-        
-        
-        
+
         NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
             self.responseArray = responseArray
             self.tableView.reloadData()
-        }
-    
-    }
-    
-    func handleTap(sender: UITapGestureRecognizer) {
-        if sender.state == .Ended {
-            // handling code
+            self.activityIndicatorView.stopAnimating()
+//            self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
         }
     }
-    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -148,7 +172,6 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-
 }
 
 extension ViewController: UITableViewDelegate {
@@ -158,3 +181,4 @@ extension ViewController: UITableViewDelegate {
     }
     
 }
+
