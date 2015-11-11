@@ -25,16 +25,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let lukesColor = UIColor(red: 59/255, green: 60/255, blue: 63/255, alpha: 1.0)
+        let darkColor = UIColor(red: 31/255, green: 35/255, blue: 38/255, alpha: 1.0)
         
         self.tableView.backgroundColor = lukesColor
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
+                
         let clearButton  = self.textField.valueForKey("clearButton")
         clearButton!.setImage(UIImage(named: "ico-cancel"), forState: UIControlState.Normal)
         clearButton!.setImage(UIImage(named: "ico-cancel"), forState: UIControlState.Highlighted)
         
-        self.textField.attributedPlaceholder = NSAttributedString(string: self.textField.text!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        self.textField.attributedPlaceholder = NSAttributedString(string: self.textField.placeholder!, attributes: [NSForegroundColorAttributeName: lukesColor])
+        
+        self.tableView.backgroundColor = darkColor
+        
+        
         
         DynamicView.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 255/255, alpha: 1)
         DynamicView.layer.cornerRadius = 20
@@ -73,7 +78,6 @@ extension ViewController: UITextFieldDelegate {
             self.activityIndicatorView.startAnimating()
         }
 
-        
         if (textField.text == "") {
             self.responseArray = []
             self.tableView.reloadData()
@@ -104,8 +108,6 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("5")
-
         let cell:ResponseTableViewCell = tableView.dequeueReusableCellWithIdentifier("ResponseCell", forIndexPath: indexPath) as! ResponseTableViewCell
         
         var currentDict:Dictionary = responseArray.objectAtIndex(indexPath.row) as! [String:AnyObject]

@@ -69,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="74" width="600" height="526"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.12941176469999999" green="0.1333333333" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResponseCell" rowHeight="113" id="2OJ-xV-RCR" customClass="ResponseTableViewCell" customModule="YidioCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="113"/>
