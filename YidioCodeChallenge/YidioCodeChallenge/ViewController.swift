@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         self.tableView.reloadData()
         self.dismissKeyboard()
         self.activityIndicatorView.stopAnimating()
-        self.clearButton.hidden = false
+        self.clearButton.hidden = true
     }
     
     @IBAction func clearButtonPushed(sender: AnyObject) {
@@ -84,6 +84,11 @@ extension ViewController: UITextFieldDelegate {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         self.clearButton.hidden = false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.dismissKeyboard()
+        return true
     }
     
     @IBAction func editingChanged(sender: AnyObject) {
