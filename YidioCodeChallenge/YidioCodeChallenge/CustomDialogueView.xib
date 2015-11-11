@@ -99,7 +99,7 @@
                     </variation>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coachmark-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="tK6-Hk-RGE">
-                    <rect key="frame" x="285" y="218" width="30" height="20"/>
+                    <rect key="frame" x="285" y="219" width="30" height="20"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="n2W-Db-94k"/>
@@ -110,7 +110,7 @@
             <animations/>
             <constraints>
                 <constraint firstItem="tK6-Hk-RGE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JUu-9c-AC1"/>
-                <constraint firstItem="T6G-KJ-OhM" firstAttribute="top" secondItem="tK6-Hk-RGE" secondAttribute="bottom" constant="-3" id="RfS-JC-g2X"/>
+                <constraint firstItem="T6G-KJ-OhM" firstAttribute="top" secondItem="tK6-Hk-RGE" secondAttribute="bottom" constant="-4" id="RfS-JC-g2X"/>
                 <constraint firstItem="T6G-KJ-OhM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gis-Zi-MD6"/>
                 <constraint firstItem="T6G-KJ-OhM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nqM-Gh-MvB"/>
             </constraints>

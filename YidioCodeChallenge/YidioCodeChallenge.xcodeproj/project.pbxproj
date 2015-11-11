@@ -12,6 +12,9 @@
 		D52AB2651BED4D2F00231BA9 /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */; };
 		D52AB2661BED4D2F00231BA9 /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */; };
 		D52AB2671BED4D2F00231BA9 /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */; };
+		D52AB26E1BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
+		D52AB26F1BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
+		D52AB2701BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
 		D52BCFDC1BE325EF006ADE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */; };
 		D52BCFE11BE325EF006ADE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52BCFDF1BE325EF006ADE36 /* Main.storyboard */; };
 		D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFE21BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld */; };
@@ -46,6 +49,7 @@
 		2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YidioCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D526DEDA1BEAC12E0077E9F1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachMarkView.swift; sourceTree = "<group>"; };
+		D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D52BCFD81BE325EF006ADE36 /* YidioCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YidioCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D52BCFE01BE325EF006ADE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		D52AB2681BED4D3900231BA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */,
 				D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */,
 				D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */,
 				D52BD00C1BE328AE006ADE36 /* CustomDialogueView.xib */,
@@ -400,6 +405,7 @@
 				D57CAFA21BE7FA5E004F28E3 /* ResponseTableViewCell.swift in Sources */,
 				D526DEDB1BEAC12E0077E9F1 /* Media.swift in Sources */,
 				D57CAF9E1BE5C61D004F28E3 /* ViewController.swift in Sources */,
+				D52AB26E1BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
 				D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */,
 				D52AB2651BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
 				D52BCFDC1BE325EF006ADE36 /* AppDelegate.swift in Sources */,
@@ -412,6 +418,7 @@
 			files = (
 				D52AB2661BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
 				D52BCFF41BE325EF006ADE36 /* YidioCodeChallengeTests.swift in Sources */,
+				D52AB26F1BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +428,7 @@
 			files = (
 				D52AB2671BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
 				D52BCFFF1BE325EF006ADE36 /* YidioCodeChallengeUITests.swift in Sources */,
+				D52AB2701BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
