@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var responseArray = []
@@ -25,31 +26,25 @@ class ViewController: UIViewController {
         
         let lukesColor = UIColor(red: 59/255, green: 60/255, blue: 63/255, alpha: 1.0)
         
-        self.searchBar.barTintColor = lukesColor
-        self.searchBar.backgroundColor = lukesColor
-        self.searchBar.searchBarStyle = UISearchBarStyle.Minimal
-
-//        self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
-//        self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Highlighted)
-//        self.searchBar.setImage(UIImage(named: "ico-search"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
-        
-        let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
-//        searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
-        searchTextField.textColor = UIColor.whiteColor()
-        
         self.tableView.backgroundColor = lukesColor
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-
+        
+        let clearButton  = self.textField.valueForKey("clearButton")
+        clearButton!.setImage(UIImage(named: "ico-cancel"), forState: UIControlState.Normal)
+        clearButton!.setImage(UIImage(named: "ico-cancel"), forState: UIControlState.Highlighted)
+        
+        self.textField.attributedPlaceholder = NSAttributedString(string: self.textField.text!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
         DynamicView.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 255/255, alpha: 1)
         DynamicView.layer.cornerRadius = 20
-        self.DynamicView.frame = CGRectMake(8, searchBar.frame.height * 3, 200, 120)
-        
+        self.DynamicView.frame = CGRectMake(8, textField.frame.height * 3, 200, 120)
         self.view.addSubview(DynamicView)
         self.DynamicView.alpha = 0
+        
         UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.DynamicView.alpha = 1
-            self.DynamicView.frame = CGRectMake(8, self.searchBar.frame.height * 1.8, 200, 120)
+            self.DynamicView.frame = CGRectMake(8, self.textField.frame.height * 2.5, 200, 120)
         }, completion: { finished in
         })
     }
@@ -64,45 +59,42 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UISearchBarDelegate {
+extension ViewController: UITextFieldDelegate {
     
-//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-//        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-//        
-//        NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
-//            self.responseArray = responseArray
-//            self.tableView.reloadData()
-//        }
-//    }
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func textFieldDidBeginEditing(textField: UITextField) {
         self.DynamicView.removeFromSuperview()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-//        self.searchBar.setImage(nil, forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
-//        self.searchBar.setImage(nil, forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Highlighted)
-        
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        self.activityIndicatorView.startAnimating()
-      
-        if (searchText == "") {
+    @IBAction func editingChanged(sender: AnyObject) {
+        
+        if self.activityIndicatorView.isAnimating() == false {
+            self.activityIndicatorView.startAnimating()
+        }
+
+        
+        if (textField.text == "") {
             self.responseArray = []
             self.tableView.reloadData()
             self.dismissKeyboard()
             self.activityIndicatorView.stopAnimating()
         }
         
-        let searchBarEncodedText = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-
+        let searchBarEncodedText = textField.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        
         NetworkHelper.getRequestFromAPIWithSearchString(searchBarEncodedText!) { (responseArray) -> Void in
             self.responseArray = responseArray
             self.tableView.reloadData()
             self.activityIndicatorView.stopAnimating()
-//            self.searchBar.setImage(UIImage(named: "ico-cancel"), forSearchBarIcon: UISearchBarIcon.Clear, state: UIControlState.Normal)
+            
         }
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.activityIndicatorView.stopAnimating()
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -126,22 +118,18 @@ extension ViewController: UITableViewDataSource {
         if currentDict["type"] as! String == "show" {
             cellSubTitleString = "TV Show" + " (\(currentDict["year"] as! String))"
             cellType = "tv"
-        }
-        else if currentDict["type"] as! String == "movie" {
+        } else if currentDict["type"] as! String == "movie" {
             if currentDict["year"] as! String != "" {
                 cellSubTitleString = "Movie" + " (\(currentDict["year"] as! String))"
-
             } else {
                 cellSubTitleString = "Movie"
             }
             cellType = "movie"
-        }
-        else if currentDict["type"] as! String == "episode" {
+        } else if currentDict["type"] as! String == "episode" {
             cellSubTitleString = "Episode · " + "Title of the Show" + " (\(currentDict["year"] as! String))"
             cellType = "episode"
-        }
-        else if currentDict["type"] as! String == "clip" {
-        
+        } else if currentDict["type"] as! String == "clip" {
+            //literally haven't even seen one yet. Am I using the API incorrectly?
         }
         
         if currentDict["available_on_device"] as! String == "1" {
