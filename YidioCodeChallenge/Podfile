@@ -12,10 +12,13 @@ target 'YidioCodeChallenge' do
 end
 
 target 'YidioCodeChallengeTests' do
-
+    
 end
 
 target 'YidioCodeChallengeUITests' do
 
 end
 
+target 'Watch' do
+    pod 'Alamofire', '~> 3.0'
+end

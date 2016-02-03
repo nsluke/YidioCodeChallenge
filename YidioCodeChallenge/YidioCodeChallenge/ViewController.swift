@@ -169,4 +169,3 @@ extension ViewController: UITableViewDelegate {
         return (1/8) * self.view.frame.height
     }
 }
-

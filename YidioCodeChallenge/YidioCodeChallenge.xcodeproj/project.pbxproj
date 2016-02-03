@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14D064CDCC6CCF80A79B6FC9 /* Pods_YidioCodeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */; };
+		AEAAFA4F076640BC1890964B /* Pods_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021225A2E405C13E2DC0724E /* Pods_Watch.framework */; };
 		D526DEDB1BEAC12E0077E9F1 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526DEDA1BEAC12E0077E9F1 /* Media.swift */; };
 		D52AB2651BED4D2F00231BA9 /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */; };
 		D52AB2661BED4D2F00231BA9 /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */; };
@@ -15,6 +16,20 @@
 		D52AB26E1BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
 		D52AB26F1BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
 		D52AB2701BF3EABA00231BA9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */; };
+		D52AB2821BF5182500231BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2811BF5182500231BA9 /* Assets.xcassets */; };
+		D52AB2891BF5182500231BA9 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D52AB2881BF5182500231BA9 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D52AB2901BF5182500231BA9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB28F1BF5182500231BA9 /* InterfaceController.swift */; };
+		D52AB2921BF5182500231BA9 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2911BF5182500231BA9 /* ExtensionDelegate.swift */; };
+		D52AB2941BF5182500231BA9 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2931BF5182500231BA9 /* NotificationController.swift */; };
+		D52AB2961BF5182500231BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2951BF5182500231BA9 /* Assets.xcassets */; };
+		D52AB29A1BF5182500231BA9 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D52AB27C1BF5182500231BA9 /* Watch.app */; };
+		D52AB2AC1BF518EB00231BA9 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2A81BF518EB00231BA9 /* Storyboard.storyboard */; };
+		D52AB2AD1BF518EB00231BA9 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2A81BF518EB00231BA9 /* Storyboard.storyboard */; };
+		D52AB2B51BF521C300231BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2B41BF521C300231BA9 /* AppDelegate.swift */; };
+		D52AB2B71BF521C300231BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2B61BF521C300231BA9 /* ViewController.swift */; };
+		D52AB2BA1BF521C300231BA9 /* TVApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D52AB2B81BF521C300231BA9 /* TVApp.xcdatamodeld */; };
+		D52AB2BD1BF521C300231BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2BB1BF521C300231BA9 /* Main.storyboard */; };
+		D52AB2BF1BF521C300231BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52AB2BE1BF521C300231BA9 /* Assets.xcassets */; };
 		D52BCFDC1BE325EF006ADE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */; };
 		D52BCFE11BE325EF006ADE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52BCFDF1BE325EF006ADE36 /* Main.storyboard */; };
 		D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D52BCFE21BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld */; };
@@ -26,9 +41,28 @@
 		D57CAF9E1BE5C61D004F28E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAF9D1BE5C61D004F28E3 /* ViewController.swift */; };
 		D57CAFA21BE7FA5E004F28E3 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */; };
 		D594CC4A1BEBC32700BAED24 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594CC491BEBC32700BAED24 /* NetworkHelper.swift */; };
+		D5FE25581C04CF18007B0419 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE25571C04CF18007B0419 /* TableViewController.swift */; };
+		D5FE25591C04CF18007B0419 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE25571C04CF18007B0419 /* TableViewController.swift */; };
+		D5FE255A1C04CF18007B0419 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE25571C04CF18007B0419 /* TableViewController.swift */; };
+		D5FE255B1C04CF18007B0419 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE25571C04CF18007B0419 /* TableViewController.swift */; };
+		D5FE255C1C04CF18007B0419 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE25571C04CF18007B0419 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D52AB28A1BF5182500231BA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D52BCFD01BE325EF006ADE36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D52AB2871BF5182500231BA9;
+			remoteInfo = "Watch Extension";
+		};
+		D52AB2981BF5182500231BA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D52BCFD01BE325EF006ADE36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D52AB27B1BF5182500231BA9;
+			remoteInfo = Watch;
+		};
 		D52BCFF01BE325EF006ADE36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D52BCFD01BE325EF006ADE36 /* Project object */;
@@ -45,11 +79,57 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D52AB29E1BF5182500231BA9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D52AB2891BF5182500231BA9 /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2A21BF5182600231BA9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D52AB29A1BF5182500231BA9 /* Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		021225A2E405C13E2DC0724E /* Pods_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1422C00A99F119C61475A0AA /* Pods-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.debug.xcconfig"; sourceTree = "<group>"; };
 		2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YidioCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40962A147108E4F3A7DBD66B /* Pods-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		D526DEDA1BEAC12E0077E9F1 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		D52AB2641BED4D2F00231BA9 /* CoachMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachMarkView.swift; sourceTree = "<group>"; };
 		D52AB26D1BF3EABA00231BA9 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D52AB27C1BF5182500231BA9 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52AB2811BF5182500231BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D52AB2831BF5182500231BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52AB2881BF5182500231BA9 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52AB28E1BF5182500231BA9 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D52AB28F1BF5182500231BA9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D52AB2911BF5182500231BA9 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D52AB2931BF5182500231BA9 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D52AB2951BF5182500231BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D52AB2971BF5182500231BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D52AB2A81BF518EB00231BA9 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		D52AB2B21BF521C300231BA9 /* TVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52AB2B41BF521C300231BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D52AB2B61BF521C300231BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D52AB2B91BF521C300231BA9 /* TVApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TVApp.xcdatamodel; sourceTree = "<group>"; };
+		D52AB2BC1BF521C300231BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D52AB2BE1BF521C300231BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D52AB2C01BF521C300231BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D52BCFD81BE325EF006ADE36 /* YidioCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YidioCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52BCFDB1BE325EF006ADE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D52BCFE01BE325EF006ADE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,11 +149,35 @@
 		D57CAFA11BE7FA5E004F28E3 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
 		D594CC491BEBC32700BAED24 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D5B6A9081BEC411B0050DEBA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		D5FE25561C04CF17007B0419 /* Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		D5FE25571C04CF18007B0419 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D63E50EC60FA782E976F6DF2 /* Pods-YidioCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YidioCodeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YidioCodeChallenge/Pods-YidioCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		FDC8107BDC7C9D649382AA34 /* Pods-YidioCodeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YidioCodeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-YidioCodeChallenge/Pods-YidioCodeChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		365787A399D1E7A046136B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEAAFA4F076640BC1890964B /* Pods_Watch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2851BF5182500231BA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2AF1BF521C300231BA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D52BCFD51BE325EF006ADE36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,6 +208,8 @@
 			children = (
 				D63E50EC60FA782E976F6DF2 /* Pods-YidioCodeChallenge.debug.xcconfig */,
 				FDC8107BDC7C9D649382AA34 /* Pods-YidioCodeChallenge.release.xcconfig */,
+				1422C00A99F119C61475A0AA /* Pods-Watch.debug.xcconfig */,
+				40962A147108E4F3A7DBD66B /* Pods-Watch.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -112,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				2891482D8701A20C672176A7 /* Pods_YidioCodeChallenge.framework */,
+				021225A2E405C13E2DC0724E /* Pods_Watch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,12 +267,61 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
+		D52AB27D1BF5182500231BA9 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				D52AB2811BF5182500231BA9 /* Assets.xcassets */,
+				D52AB2831BF5182500231BA9 /* Info.plist */,
+				D52AB2A81BF518EB00231BA9 /* Storyboard.storyboard */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		D52AB28C1BF5182500231BA9 /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D52AB28F1BF5182500231BA9 /* InterfaceController.swift */,
+				D52AB2911BF5182500231BA9 /* ExtensionDelegate.swift */,
+				D52AB2931BF5182500231BA9 /* NotificationController.swift */,
+				D52AB2951BF5182500231BA9 /* Assets.xcassets */,
+				D52AB2971BF5182500231BA9 /* Info.plist */,
+				D52AB28D1BF5182500231BA9 /* Supporting Files */,
+			);
+			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
+		D52AB28D1BF5182500231BA9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D52AB28E1BF5182500231BA9 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D52AB2B31BF521C300231BA9 /* TVApp */ = {
+			isa = PBXGroup;
+			children = (
+				D52AB2B41BF521C300231BA9 /* AppDelegate.swift */,
+				D52AB2B61BF521C300231BA9 /* ViewController.swift */,
+				D5FE25571C04CF18007B0419 /* TableViewController.swift */,
+				D52AB2BB1BF521C300231BA9 /* Main.storyboard */,
+				D52AB2BE1BF521C300231BA9 /* Assets.xcassets */,
+				D52AB2C01BF521C300231BA9 /* Info.plist */,
+				D52AB2B81BF521C300231BA9 /* TVApp.xcdatamodeld */,
+				D5FE25561C04CF17007B0419 /* Watch-Bridging-Header.h */,
+			);
+			path = TVApp;
+			sourceTree = "<group>";
+		};
 		D52BCFCF1BE325EF006ADE36 = {
 			isa = PBXGroup;
 			children = (
 				D52BCFDA1BE325EF006ADE36 /* YidioCodeChallenge */,
 				D52BCFF21BE325EF006ADE36 /* YidioCodeChallengeTests */,
 				D52BCFFD1BE325EF006ADE36 /* YidioCodeChallengeUITests */,
+				D52AB27D1BF5182500231BA9 /* Watch */,
+				D52AB28C1BF5182500231BA9 /* Watch Extension */,
+				D52AB2B31BF521C300231BA9 /* TVApp */,
 				D52BCFD91BE325EF006ADE36 /* Products */,
 				4103F9A83DA2C2E6D25C9067 /* Pods */,
 				43E44D37B2BAA916990E6E37 /* Frameworks */,
@@ -178,6 +334,9 @@
 				D52BCFD81BE325EF006ADE36 /* YidioCodeChallenge.app */,
 				D52BCFEF1BE325EF006ADE36 /* YidioCodeChallengeTests.xctest */,
 				D52BCFFA1BE325EF006ADE36 /* YidioCodeChallengeUITests.xctest */,
+				D52AB27C1BF5182500231BA9 /* Watch.app */,
+				D52AB2881BF5182500231BA9 /* Watch Extension.appex */,
+				D52AB2B21BF521C300231BA9 /* TVApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,8 +352,8 @@
 				D52AB26A1BED4D4B00231BA9 /* Objects */,
 				D52AB2681BED4D3900231BA9 /* Views */,
 				D52AB26C1BED4DC400231BA9 /* Headers */,
-				D52BCFEA1BE325EF006ADE36 /* Info.plist */,
 				D52BCFE21BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld */,
+				D52BCFEA1BE325EF006ADE36 /* Info.plist */,
 				D52BCFE51BE325EF006ADE36 /* Assets.xcassets */,
 			);
 			path = YidioCodeChallenge;
@@ -221,6 +380,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D52AB27B1BF5182500231BA9 /* Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52AB29F1BF5182600231BA9 /* Build configuration list for PBXNativeTarget "Watch" */;
+			buildPhases = (
+				D1AF812066026BE60C9D057E /* Check Pods Manifest.lock */,
+				D52AB27A1BF5182500231BA9 /* Resources */,
+				D52AB29E1BF5182500231BA9 /* Embed App Extensions */,
+				365787A399D1E7A046136B00 /* Frameworks */,
+				6527A35F0C6B2EF0CB2FAC6B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D52AB28B1BF5182500231BA9 /* PBXTargetDependency */,
+			);
+			name = Watch;
+			productName = Watch;
+			productReference = D52AB27C1BF5182500231BA9 /* Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D52AB2871BF5182500231BA9 /* Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52AB29B1BF5182500231BA9 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildPhases = (
+				D52AB2841BF5182500231BA9 /* Sources */,
+				D52AB2851BF5182500231BA9 /* Frameworks */,
+				D52AB2861BF5182500231BA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch Extension";
+			productName = "Watch Extension";
+			productReference = D52AB2881BF5182500231BA9 /* Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		D52AB2B11BF521C300231BA9 /* TVApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52AB2C11BF521C300231BA9 /* Build configuration list for PBXNativeTarget "TVApp" */;
+			buildPhases = (
+				D52AB2AE1BF521C300231BA9 /* Sources */,
+				D52AB2AF1BF521C300231BA9 /* Frameworks */,
+				D52AB2B01BF521C300231BA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TVApp;
+			productName = TVApp;
+			productReference = D52AB2B21BF521C300231BA9 /* TVApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D52BCFD71BE325EF006ADE36 /* YidioCodeChallenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D52BD0031BE325EF006ADE36 /* Build configuration list for PBXNativeTarget "YidioCodeChallenge" */;
@@ -231,10 +444,12 @@
 				D52BCFD61BE325EF006ADE36 /* Resources */,
 				2AFDC4B42A4204EBE58ED050 /* Embed Pods Frameworks */,
 				E885AA7818A86BFE6F837477 /* Copy Pods Resources */,
+				D52AB2A21BF5182600231BA9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D52AB2991BF5182500231BA9 /* PBXTargetDependency */,
 			);
 			name = YidioCodeChallenge;
 			productName = YidioCodeChallenge;
@@ -287,6 +502,15 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Luke Solomon";
 				TargetAttributes = {
+					D52AB27B1BF5182500231BA9 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					D52AB2871BF5182500231BA9 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					D52AB2B11BF521C300231BA9 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					D52BCFD71BE325EF006ADE36 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -316,11 +540,41 @@
 				D52BCFD71BE325EF006ADE36 /* YidioCodeChallenge */,
 				D52BCFEE1BE325EF006ADE36 /* YidioCodeChallengeTests */,
 				D52BCFF91BE325EF006ADE36 /* YidioCodeChallengeUITests */,
+				D52AB27B1BF5182500231BA9 /* Watch */,
+				D52AB2871BF5182500231BA9 /* Watch Extension */,
+				D52AB2B11BF521C300231BA9 /* TVApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D52AB27A1BF5182500231BA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52AB2821BF5182500231BA9 /* Assets.xcassets in Resources */,
+				D52AB2AC1BF518EB00231BA9 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2861BF5182500231BA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52AB2961BF5182500231BA9 /* Assets.xcassets in Resources */,
+				D52AB2AD1BF518EB00231BA9 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2B01BF521C300231BA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52AB2BF1BF521C300231BA9 /* Assets.xcassets in Resources */,
+				D52AB2BD1BF521C300231BA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D52BCFD61BE325EF006ADE36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +618,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YidioCodeChallenge/Pods-YidioCodeChallenge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6527A35F0C6B2EF0CB2FAC6B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch/Pods-Watch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1AF812066026BE60C9D057E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		E885AA7818A86BFE6F837477 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +681,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D52AB2841BF5182500231BA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52AB2941BF5182500231BA9 /* NotificationController.swift in Sources */,
+				D52AB2921BF5182500231BA9 /* ExtensionDelegate.swift in Sources */,
+				D52AB2901BF5182500231BA9 /* InterfaceController.swift in Sources */,
+				D5FE255B1C04CF18007B0419 /* TableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52AB2AE1BF521C300231BA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52AB2BA1BF521C300231BA9 /* TVApp.xcdatamodeld in Sources */,
+				D52AB2B71BF521C300231BA9 /* ViewController.swift in Sources */,
+				D52AB2B51BF521C300231BA9 /* AppDelegate.swift in Sources */,
+				D5FE255C1C04CF18007B0419 /* TableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D52BCFD41BE325EF006ADE36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +714,7 @@
 				D52AB26E1BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
 				D52BCFE41BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld in Sources */,
 				D52AB2651BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
+				D5FE25581C04CF18007B0419 /* TableViewController.swift in Sources */,
 				D52BCFDC1BE325EF006ADE36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +726,7 @@
 				D52AB2661BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
 				D52BCFF41BE325EF006ADE36 /* YidioCodeChallengeTests.swift in Sources */,
 				D52AB26F1BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
+				D5FE25591C04CF18007B0419 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,12 +737,23 @@
 				D52AB2671BED4D2F00231BA9 /* CoachMarkView.swift in Sources */,
 				D52BCFFF1BE325EF006ADE36 /* YidioCodeChallengeUITests.swift in Sources */,
 				D52AB2701BF3EABA00231BA9 /* CustomTextField.swift in Sources */,
+				D5FE255A1C04CF18007B0419 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D52AB28B1BF5182500231BA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D52AB2871BF5182500231BA9 /* Watch Extension */;
+			targetProxy = D52AB28A1BF5182500231BA9 /* PBXContainerItemProxy */;
+		};
+		D52AB2991BF5182500231BA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D52AB27B1BF5182500231BA9 /* Watch */;
+			targetProxy = D52AB2981BF5182500231BA9 /* PBXContainerItemProxy */;
+		};
 		D52BCFF11BE325EF006ADE36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D52BCFD71BE325EF006ADE36 /* YidioCodeChallenge */;
@@ -448,6 +767,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D52AB2BB1BF521C300231BA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D52AB2BC1BF521C300231BA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		D52BCFDF1BE325EF006ADE36 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -467,6 +794,105 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D52AB29C1BF5182500231BA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.YidioCodeChallenge.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		D52AB29D1BF5182500231BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.YidioCodeChallenge.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		D52AB2A01BF5182600231BA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1422C00A99F119C61475A0AA /* Pods-Watch.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.YidioCodeChallenge.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TVApp/Watch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		D52AB2A11BF5182600231BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40962A147108E4F3A7DBD66B /* Pods-Watch.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.YidioCodeChallenge.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TVApp/Watch-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		D52AB2C21BF521C300231BA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.TVApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		D52AB2C31BF521C300231BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LukeSolomon.TVApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		D52BD0011BE325EF006ADE36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,6 +1053,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D52AB29B1BF5182500231BA9 /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52AB29C1BF5182500231BA9 /* Debug */,
+				D52AB29D1BF5182500231BA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52AB29F1BF5182600231BA9 /* Build configuration list for PBXNativeTarget "Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52AB2A01BF5182600231BA9 /* Debug */,
+				D52AB2A11BF5182600231BA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52AB2C11BF521C300231BA9 /* Build configuration list for PBXNativeTarget "TVApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52AB2C21BF521C300231BA9 /* Debug */,
+				D52AB2C31BF521C300231BA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D52BCFD31BE325EF006ADE36 /* Build configuration list for PBXProject "YidioCodeChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -666,6 +1119,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		D52AB2B81BF521C300231BA9 /* TVApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D52AB2B91BF521C300231BA9 /* TVApp.xcdatamodel */,
+			);
+			currentVersion = D52AB2B91BF521C300231BA9 /* TVApp.xcdatamodel */;
+			path = TVApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		D52BCFE21BE325EF006ADE36 /* YidioCodeChallenge.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
