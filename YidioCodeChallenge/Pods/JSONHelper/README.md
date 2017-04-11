@@ -1,33 +1,35 @@
-
-#JSONHelper [![CocoaPods](https://img.shields.io/cocoapods/l/JSONHelper.svg)](https://github.com/isair/JSONHelper/blob/master/LICENSE) ![CocoaPods](https://img.shields.io/cocoapods/p/JSONHelper.svg)
-
+# JSONHelper
+[![CocoaPods](https://img.shields.io/cocoapods/l/JSONHelper.svg)](https://github.com/isair/JSONHelper/blob/master/LICENSE)
+![CocoaPods](https://img.shields.io/cocoapods/p/JSONHelper.svg)
 [![Build Status](https://travis-ci.org/isair/JSONHelper.svg?branch=master)](https://travis-ci.org/isair/JSONHelper)
 [![CocoaPods](https://img.shields.io/cocoapods/v/JSONHelper.svg)](https://cocoapods.org/pods/JSONHelper)
-[![Stories in Ready](https://badge.waffle.io/isair/JSONHelper.png?label=ready&title=Ready)](https://waffle.io/isair/JSONHelper)
+
 [![Gratipay](https://img.shields.io/gratipay/bsencan91.svg)](https://gratipay.com/bsencan91/)
 [![Gitter](https://badges.gitter.im/JOIN CHAT.svg)](https://gitter.im/isair/JSONHelper?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Lightning fast JSON deserialization for iOS &amp; OS X written in Swift.
+Convert anything into anything in one operation; hex strings into UIColor/NSColor, JSON strings into class instances, y/n strings to booleans, arrays and dictionaries of these; anything you can make sense of!
 
-##Table of Contents
+__Latest version requires iOS 8+ and Xcode 7.3+__
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Operator List](#operator-list)
-4. [Simple Tutorial](#simple-tutorial)
-5. [Assigning Default Values](#assigning-default-values)
-6. [NSDate and NSURL Deserialization](#nsdate-and-nsurl-deserialization)
-7. [JSON String Deserialization](#json-string-deserialization)
+## Table of Contents
 
-##Introduction
+1. [Installation](#installation)
+2. [The <-- Operator](#the----operator)
+3. [Convertible Protocol](#convertible-protocol)
+4. [Deserializable Protocol](#deserializable-protocol) (with JSON deserialization example)
+5. [Serializable Protocol](#serializable-protocol)
 
-JSONHelper is a library written to make sure that deserializing data obtained from an API is as easy as possible. It doesn't depend on any networking libraries, and works equally well with any of them.
+## Installation
 
-__Requires iOS 7 or later and Xcode 6.1+__
+### [CocoaPods](https://github.com/CocoaPods/CocoaPods)
 
-##Installation
+Add the following line in your `Podfile`.
 
-###[Carthage](https://github.com/Carthage/Carthage#installing-carthage)
+```
+pod "JSONHelper"
+```
+
+### [Carthage](https://github.com/Carthage/Carthage#installing-carthage)
 
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
@@ -37,151 +39,83 @@ github "isair/JSONHelper"
 
 Then do `carthage update`. After that, add the framework to your project.
 
-###[Cocoapods](https://github.com/CocoaPods/CocoaPods)
+## The <-- Operator
 
-Add the following line in your `Podfile`.
+The `<--` operator takes the value on its right hand side and tries to convert it into the type of the value on its left hand side. If the conversion fails, an error is logged on debug builds. If it's successful, the value of the left hand side variable is overwritten. It's chainable as well.
 
+If the right hand side value is nil or the conversion fails, and the left hand side variable is an optional, then nil is assigned to it. When the left hand side is non-optional, the current value of the left hand side variable is left untouched.
+
+Using this specification let's assume you have a dictionary response that you retrieved from some API with hex color strings in it, under the key `colors`, that you want to convert into an array of UIColor instances. Also, to fully use everything we know, let's also assume that we want to have a default value for our color array in case the value for the key we're looking for does not exist (is nil).
+
+```swift
+var colors = [UIColor.blackColor(), UIColor.whiteColor()]
+// Assume we have response { "colors": ["#aaa", "#b06200aa"] }
+colors <-- response[colorsKey]
 ```
-pod "JSONHelper"
-```	
 
-###Drag & Drop
+### Convertible Protocol
 
-You can also add [JSONHelper.swift](https://raw.githubusercontent.com/isair/JSONHelper/master/JSONHelper/JSONHelper.swift) directly into your project.
+If your type is a simple value-like type, adopting the Convertible protocol is the way to make your type work with the `<--` operator.
 
-##Basic Tutorial
+Example:
+```swift
+struct Vector2D: Convertible {
+  var x: Double = 0
+  var y: Double = 0
 
-First of all I'm going to assume you use [AFNetworking](https://github.com/AFNetworking/AFNetworking) as your networking library; for simplicity. Let's say we have an endpoint at __http://yoursite.com/movies/__ which gives the following response when a simple __GET__ request is sent to it.
+  init(x: Double, y: Double) {
+    self.x = x
+    self.y = y
+  }
 
-```json
-{
-  "movies": [
-    {
-      "name": "Filth",
-      "release_date": "2014-05-30",
-      "cast": {
-        "Bruce": "James McAvoy",
-        "Lennox": "Jamie Bell"
-      }
-    },
-    {
-      "name": "American Psycho",
-      "release_date": "2000-04-14",
-      "cast": {
-        "Patrick Bateman": "Christian Bale",
-        "Timothy Bryce": "Justin Theroux"
-      }
+  static func convertFromValue<T>(value: T?) throws -> Self? {
+    guard let value = value else { return nil }
+
+    if let doubleTupleValue = value as? (Double, Double) {
+      return self.init(x: doubleTupleValue.0, y: doubleTupleValue.1)
     }
-  ]
-}
-```
 
-From this response it is clear that we have a book model similar to the implementation below.
-
-```swift
-struct Movie {
-  var name: String?
-  var releaseDate: NSDate?
-  var cast: [String: String]?
-}
-```
-
-We now have to make it extend the protocol __Deserializable__ and implement the __required init(data: [String: AnyObject])__ initializer and use our deserialization operator (`<--`) in it. The complete model should look like this:
-
-```swift
-struct Movie: Deserializable {
-  var name: String?
-  var releaseDate: NSDate?
-  var cast: [String: String]?
-
-  init(data: [String: AnyObject]) {
-    name <-- data["name"]
-    releaseDate <-- (data["release_date"], "yyyy-MM-dd") // Refer to the next section for more info.
-    cast <-- data["cast"]
+    throw ConversionError.UnsupportedType
   }
 }
 ```
 
-And finally, requesting and deserializing the response from our endpoint becomes as easy as the following piece of code.
-
 ```swift
-AFHTTPRequestOperationManager().GET(
-  "http://yoursite.com/movies/"
-  parameters: nil,
-  success: { operation, data in
-    var movies: [Movie]?
-    movies <-- data["movies"]
-    
-    if let movies = movies {
-      // Response contained a movies array, and we deserialized it. Do what you want here.
-    } else {
-      // Server gave us a response but there was no "movies" key in it, so the movies variable
-      // is equal to nil. Do some error handling here.
-    }
-  },
-  failure: { operation, error in
-    // Handle error.
-})
+var myVector: Vector2D?
+myVector <-- (1.0, 2.7)
 ```
 
-##Assigning Default Values
+### Deserializable Protocol
 
-You can easily assign default values to variables in cases where you want them to have a certain value when deserialization fails.
+While you can basically adopt the `Convertible` protocol for any type, if your type is always converted from a dictionary or a JSON string then things can get a lot easier with the `Deserializable` protocol.
 
-````swift
-struct User: Deserializable {
-  var name = "Guest"
-  
-  init(data: [String: AnyObject]) {
-    name <-- data["name"]
+Example:
+```swift
+class User: Deserializable {
+  static let idKey = "id"
+  static let emailKey = "email"
+  static let nameKey = "name"
+  static let avatarURLKey = "avatar_url"
+
+  private(set) var id: String?
+  private(set) var email: String?
+  private(set) var name = "Guest"
+  private(set) var avatarURL = NSURL(string: "https://mysite.com/assets/default-avatar.png")
+
+  required init(dictionary: [String : AnyObject]) {
+    id <-- dictionary[User.idKey]
+    email <-- dictionary[User.emailKey]
+    name <-- dictionary[User.nameKey]
+    avatarURL <-- dictionary[User.avatarURLKey]
   }
 }
-````
+```
 
-##NSDate and NSURL Deserialization
+```swift
+var myUser: User?
+user <-- apiResponse["user"]
+```
 
-NSURL deserialization works very much like a primitive type deserialization.
+### Serializable Protocol
 
-````swift
-let website: NSURL?
-let imageURLs: [NSURL]?
-
-website <-- "http://mywebsite.com"
-imageURLs <-- ["http://mywebsite.com/image.png", "http://mywebsite.com/anotherImage.png"]
-````
-
-NSDate deserialization however, requires a format to be provided most of the time.
-
-````swift
-let meetingDate: NSDate?
-let partyDates: [NSDate]?
-
-meetingDate <-- ("2014-09-18", "yyyy-MM-dd")
-partyDates <-- (["2014-09-19", "2014-09-20"], "yyyy-MM-dd")
-
-let myDayOff: NSDate?
-myDayOff <-- 1414172803 // You can also use unix timestamps.
-````
-
-##JSON String Deserialization
-
-You can deserialize instances and arrays of instances directly from a JSON string as well. Here is a quick example.
-
-````swift
-struct Person: Deserializable {
-  var name = ""
-
-  init(data: [String: AnyObject]) {
-    name <-- data["name"]
-  }
-}
-
-let jsonString = "[{\"name\": \"Rocket Raccoon\"}, {\"name\": \"Groot\"}]"
-var people = [Person]()
-
-people <-- jsonString
-
-for person in people {
-  println(person.name)
-}
-````
+// Serialization is coming soon. I'll probably not add a new protocol and just rename and update the Deserializable protocol and turn it into a mixin.

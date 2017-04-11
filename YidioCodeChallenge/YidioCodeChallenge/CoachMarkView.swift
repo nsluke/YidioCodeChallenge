@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @IBDesignable
 class CoachMarkView: UIView {
     
@@ -57,11 +56,9 @@ class CoachMarkView: UIView {
     }
     
     func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(forClass: type(of: self))
         let nib = UINib(nibName: "CustomDialogueView", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        
-        
         
         return view
     }

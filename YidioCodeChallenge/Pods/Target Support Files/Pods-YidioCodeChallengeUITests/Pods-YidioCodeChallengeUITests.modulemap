@@ -1,0 +1,6 @@
+framework module Pods_YidioCodeChallengeUITests {
+  umbrella header "Pods-YidioCodeChallengeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

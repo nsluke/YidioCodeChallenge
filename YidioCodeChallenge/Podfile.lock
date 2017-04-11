@@ -1,27 +1,27 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Alamofire (3.1.1)
-  - JSONHelper (1.6.1)
+  - Alamofire (3.5.1)
+  - JSONHelper (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -29,8 +29,10 @@ DEPENDENCIES:
   - JSONHelper
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  Alamofire: 9b0a7188b961a03914a99304488bd226b0e46c0e
-  JSONHelper: 2ffa958e1cb6f6eed52478d6239d8a945055d368
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  JSONHelper: 684a9ffd73578f370c0a02197319a97e37120124
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 65858632365283459465089d90d918aa2d8011f8
+
+COCOAPODS: 1.2.0
